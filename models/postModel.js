@@ -36,8 +36,6 @@ const addNewPost = async (username, content) => {
         'username': username,
         'content': content
     }
-
-    const new
 }
 
 module.exports = getAllPosts;
