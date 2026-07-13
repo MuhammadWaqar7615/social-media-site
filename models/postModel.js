@@ -36,10 +36,12 @@ const addNewPost = async (username, content) => {
         'username': username,
         'content': content
     }
+
+    console.log("addNewPost content: ", newPost);
 }
 
 module.exports = getAllPosts;
 module.exports = addNewPost;
 
 // console.log("the function is running: ", getAllPosts());
-console.log("the function is running: ", addNewPost("ali", "this is content of the post"));
+console.log("the function addNewPost is running: ", addNewPost("ali", "this is content of the post"));
