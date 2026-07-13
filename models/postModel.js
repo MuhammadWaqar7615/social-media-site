@@ -38,8 +38,10 @@ const addNewPost = async (username, content) => {
     return newPost;
 };
 
-module.exports = getAllPosts;
-module.exports = addNewPost;
+module.exports = {
+    getAllPosts,
+    addNewPost
+};
 
 console.log("the function is running: ", getAllPosts());
 // console.log("the function addNewPost is running: ", addNewPost("ali", "this is content of the post"));
