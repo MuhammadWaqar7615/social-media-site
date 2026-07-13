@@ -13,27 +13,30 @@ const getAllPosts = async () => {
 };
 
 const addNewPost = async (username, content) => {
-    const posts = getAllPosts();
+    const posts = await getAllPosts();
 
-    const now = new Date()
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0'); 
-    const year = String(now.getFullYear()).slice(-2);          
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const now = new Date();
 
-    const formattedDate = `${day}-${month}-${year}-${hours}-${minutes}`;
+    const formattedDate =
+        `${String(now.getDate()).padStart(2, '0')}-` +
+        `${String(now.getMonth() + 1).padStart(2, '0')}-` +
+        `${String(now.getFullYear()).slice(-2)}-` +
+        `${String(now.getHours()).padStart(2, '0')}-` +
+        `${String(now.getMinutes()).padStart(2, '0')}`;
 
     const newPost = {
-        'id': formattedDate,
-        'timestamp': new Date().toISOString(),
-        'username': username,
-        'content': content
-    }
+        id: formattedDate,
+        timestamp: now.toISOString(),
+        username,
+        content
+    };
 
-    await getAllPosts().push(newPost);
-    console.log("addNewPost content: ", getAllPosts());
-}
+    posts.push(newPost);
+
+    await fs.writeFile(postsPath, JSON.stringify(posts, null, 2));
+
+    return newPost;
+};
 
 module.exports = getAllPosts;
 module.exports = addNewPost;
