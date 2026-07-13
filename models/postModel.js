@@ -4,19 +4,13 @@ const path = require('path');
 const postsPath = path.join(__dirname, '../data', 'posts.json');
 
 const getAllPosts = async () => {
-    const postFile = await fs.readFile(postsPath, (err, data) => {
-        if(err) {
-            console.error("error while reading file: ", err);
-            return([]);
-        }
-    })
     try {
-        const allPosts = JSON.parse(postFile);
-        console.log("postfile: ", allPosts);
-    } catch (error) {
-        const allPosts = [];
+        const postFile = await fs.readFile(postsPath, 'utf8');
+        return JSON.parse(postFile);
+    } catch (err) {
+        return [];
     }
-}
+};
 
 const addNewPost = async (username, content) => {
     const posts = getAllPosts();
