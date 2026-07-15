@@ -47,4 +47,7 @@ const addNewPost = async (username, content) => {
   }
 };
 
-console.log("get all posts: ", addNewPost("ali", "this is testing content 2"));
+module.exports = {
+    getAllPosts,
+    addNewPost
+}
