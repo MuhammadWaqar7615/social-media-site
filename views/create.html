@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+</head>
+<body>
+    <h1>This is Create Post Page</h1>
+    <form action="/api/posts" method="post" class="flex flex-col">
+        <label>Username: </label>
+        <input type="text" name="username" placeholder="Enter username here" /> <br>
+
+        <label>Content</label>
+        <textarea name="content" placeholder="Write Content of the post" rows="3" cols="30"></textarea> <br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
