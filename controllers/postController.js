@@ -1,5 +1,5 @@
 // const postModel = require('../models/postModel');
-const { getAllPosts } = require('../models/postModel');
+const { getAllPosts, addNewPost } = require('../models/postModel');
 const path = require('path');
 
 const getFeedPage = ((req, res) => {
@@ -13,7 +13,19 @@ const getPosts = async (req, res) => {
     const posts = await getAllPosts();
     // console.log('These are the total posts: ', posts);
     const resp = res.json({posts})
-    console.log("response json: ", resp);
 }
 
-module.exports = getPosts;
+const createNewPost = async (req, res) => {
+    // console.log("req", req.body);
+    const name = req.body.username;
+    const content = req.body.content;
+    const createPost = await addNewPost(name, content);
+    res.redirect('/')
+}
+
+module.exports = {
+    getFeedPage,
+    getCreatePage,
+    getPosts,
+    createNewPost
+}
