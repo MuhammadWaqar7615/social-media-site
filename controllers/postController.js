@@ -1,5 +1,5 @@
 // const postModel = require('../models/postModel');
-const { getAllPosts, addNewPost } = require('../models/postModel');
+const { getAllPosts, addNewPost, handledlete } = require('../models/postModel');
 const path = require('path');
 
 const getFeedPage = ((req, res) => {
@@ -22,10 +22,19 @@ const createNewPost = async (req, res) => {
     const createPost = await addNewPost(name, content);
     res.redirect('/')
 }
+const deletePost = ((req, res) => {
+    const reqId = req.params.id;
+    handledlete(reqId);
+    res.status(200).json({
+        message: 'Post deleted successfully',
+        id: reqId
+    })
+})
 
 module.exports = {
     getFeedPage,
     getCreatePage,
     getPosts,
-    createNewPost
+    createNewPost,
+    deletePost
 }
