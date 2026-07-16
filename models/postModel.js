@@ -1,4 +1,5 @@
 const fs = require("fs").promises;
+const { writeFile } = require("fs");
 const path = require("path");
 
 const filePath = path.join("data", "posts.json");
@@ -47,7 +48,23 @@ const addNewPost = async (username, content) => {
   }
 };
 
+const handledlete = async (reqId) => {
+  // array id == arr.id -> delete
+  // console.log("model function triggered!! ")
+  console.log("This will take id: ", reqId);
+  const allPosts = await getAllPosts();
+  const updatedPostsFile = allPosts.filter((post) => {
+    return post.id !== reqId;
+  })
+  try {
+    await fs.writeFile(filePath, JSON.stringify(updatedPostsFile), "utf8");
+  } catch (error) {
+    console.error("error while updating the file: ", error)
+  }
+}
+
 module.exports = {
     getAllPosts,
-    addNewPost
+    addNewPost,
+    handledlete
 }
