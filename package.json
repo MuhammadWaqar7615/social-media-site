@@ -4,9 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "_start": "nodemon app.js & npm run tw",
-    "_tw": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch",
-    "start": "nodemon app.js",
+    "start": "nodemon app.js & npm run tw",
+    "tw": "npx @tailwindcss/cli -i ./assets/style.css -o ./public/style.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,10 +14,10 @@
   "type": "commonjs",
   "dependencies": {
     "ejs": "^6.0.1",
-    "express": "^5.2.1",
-    "nodemon": "^3.1.14"
+    "express": "^5.2.1"
   },
   "devDependencies": {
+    "nodemon": "^3.1.14",
     "@tailwindcss/cli": "^4.3.2",
     "tailwindcss": "^4.3.2"
   }
