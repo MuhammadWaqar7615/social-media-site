@@ -27,9 +27,7 @@ const fetching = async () => {
               ${post.username}
             </h2>
 
-            <button title="Delete Post" class="opacity-0 scale-90 pointer-events-none cursor-pointer group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 p-2 rounded-full bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700"
-            onClick="window.handleDelete('${post.id}')"
-            >
+            <button onClick="window.handleDelete('${post.id}')" title="Delete Post" class="opacity-0 scale-90 pointer-events-none cursor-pointer group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 p-2 rounded-full bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-5 h-5 fill-current"
