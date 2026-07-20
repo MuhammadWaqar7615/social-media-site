@@ -18,7 +18,7 @@ const createNewPost = async (req, res) => {
     const name = req.body.username;
     const content = req.body.content;
     await addNewPost(name, content);
-    res.redirect('/feed');
+    res.redirect('/');
 }
 
 const deletePost = async (req, res) => {
