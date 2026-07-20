@@ -3,7 +3,6 @@ node_modules
 .vscode
 .git
 *.log
-assets/
 data/
 nodemon.json
 package-lock.json
